@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://c00blukjcywj6"]
+[gd_scene load_steps=9 format=3 uid="uid://c00blukjcywj6"]
+
+[ext_resource type="Script" path="res://scripts/flappy.gd" id="1_34ckh"]
+[ext_resource type="Texture2D" uid="uid://bvwlqnv3qi6cf" path="res://assets/Flappy.png" id="2_jjrf5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vgky"]
+atlas = ExtResource("2_jjrf5")
+region = Rect2(0, 0, 23, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbxwd"]
+atlas = ExtResource("2_jjrf5")
+region = Rect2(0, 16, 23, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsjbi"]
+atlas = ExtResource("2_jjrf5")
+region = Rect2(0, 32, 23, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvrwk"]
+atlas = ExtResource("2_jjrf5")
+region = Rect2(0, 48, 23, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df8v8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vgky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbxwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsjbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvrwk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sflt3"]
+radius = 6.0
 
 [node name="Flappy" type="Node2D"]
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(387, -105)
+script = ExtResource("1_34ckh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+position = Vector2(-386, 107)
+sprite_frames = SubResource("SpriteFrames_df8v8")
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(-384, 106)
+shape = SubResource("CircleShape2D_sflt3")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-385, 106)

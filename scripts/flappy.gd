@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	velocity.x = SPEED
+	$AnimatedSprite2D.play()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

@@ -1,49 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwwhec43xf5lx"]
+[gd_scene load_steps=5 format=3 uid="uid://bwwhec43xf5lx"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_ld88o"]
 [ext_resource type="PackedScene" uid="uid://cavojl5slo3wh" path="res://scenes/column.tscn" id="2_1df1v"]
-[ext_resource type="Script" path="res://scripts/flappy.gd" id="2_2pgax"]
-[ext_resource type="Texture2D" uid="uid://bvwlqnv3qi6cf" path="res://assets/Flappy.png" id="3_2dbvd"]
 [ext_resource type="PackedScene" uid="uid://c00blukjcywj6" path="res://scenes/flappy.tscn" id="3_58hg1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vgky"]
-atlas = ExtResource("3_2dbvd")
-region = Rect2(0, 0, 23, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbxwd"]
-atlas = ExtResource("3_2dbvd")
-region = Rect2(0, 16, 23, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hsjbi"]
-atlas = ExtResource("3_2dbvd")
-region = Rect2(0, 32, 23, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvrwk"]
-atlas = ExtResource("3_2dbvd")
-region = Rect2(0, 48, 23, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8mvge"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1vgky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hbxwd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hsjbi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yvrwk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 12.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_odpof"]
-radius = 8.0
+[ext_resource type="Texture2D" uid="uid://daxrdacs0dh5c" path="res://assets/Cave.png" id="3_hnciy"]
 
 [node name="game" type="Node"]
 
@@ -53,16 +13,14 @@ script = ExtResource("1_ld88o")
 [node name="Columns" parent="." instance=ExtResource("2_1df1v")]
 
 [node name="Flappy" parent="." instance=ExtResource("3_58hg1")]
+position = Vector2(222, 152)
 
-[node name="player" type="CharacterBody2D" parent="Flappy"]
-script = ExtResource("2_2pgax")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flappy/player"]
-sprite_frames = SubResource("SpriteFrames_8mvge")
-frame_progress = 0.0468263
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(640, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flappy/player"]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_odpof")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.66927, 0.929688)
+texture = ExtResource("3_hnciy")
+centered = false
