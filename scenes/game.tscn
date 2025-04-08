@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwwhec43xf5lx"]
+[gd_scene load_steps=9 format=3 uid="uid://bwwhec43xf5lx"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_ld88o"]
 [ext_resource type="PackedScene" uid="uid://cavojl5slo3wh" path="res://scenes/column.tscn" id="2_1df1v"]
 [ext_resource type="PackedScene" uid="uid://c00blukjcywj6" path="res://scenes/flappy.tscn" id="3_58hg1"]
 [ext_resource type="Texture2D" uid="uid://daxrdacs0dh5c" path="res://assets/Cave.png" id="3_hnciy"]
+[ext_resource type="PackedScene" uid="uid://corla4obic7nm" path="res://killzone_bot.tscn" id="5_gqmx4"]
+[ext_resource type="PackedScene" uid="uid://v30qk0na2muk" path="res://killzone_top.tscn" id="6_ycdjd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rqvsa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3slf0"]
+normal = Vector2(0, 1)
+distance = 26.0
 
 [node name="game" type="Node"]
 
@@ -24,3 +32,20 @@ motion_mirroring = Vector2(640, 0)
 scale = Vector2(1.66927, 0.929688)
 texture = ExtResource("3_hnciy")
 centered = false
+
+[node name="KillzoneBot" parent="." instance=ExtResource("5_gqmx4")]
+position = Vector2(-28, 185)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneBot"]
+position = Vector2(125, 178)
+shape = SubResource("WorldBoundaryShape2D_rqvsa")
+
+[node name="KillzoneTop" parent="." instance=ExtResource("6_ycdjd")]
+position = Vector2(93, -2)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneTop"]
+position = Vector2(3, -26)
+shape = SubResource("WorldBoundaryShape2D_3slf0")
+
+[connection signal="body_entered" from="KillzoneTop" to="KillzoneTop" method="_on_body_entered"]
