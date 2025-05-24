@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cavojl5slo3wh" path="res://scenes/column.tscn" id="2_1df1v"]
 [ext_resource type="PackedScene" uid="uid://c00blukjcywj6" path="res://scenes/flappy.tscn" id="3_58hg1"]
 [ext_resource type="Texture2D" uid="uid://daxrdacs0dh5c" path="res://assets/Cave.png" id="3_hnciy"]
-[ext_resource type="PackedScene" uid="uid://corla4obic7nm" path="res://killzone_bot.tscn" id="5_gqmx4"]
-[ext_resource type="PackedScene" uid="uid://v30qk0na2muk" path="res://killzone_top.tscn" id="6_ycdjd"]
+[ext_resource type="PackedScene" uid="uid://corla4obic7nm" path="res://scenes/killzone_bot.tscn" id="5_gqmx4"]
+[ext_resource type="PackedScene" uid="uid://v30qk0na2muk" path="res://scenes/killzone_top.tscn" id="6_ycdjd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rqvsa"]
 
