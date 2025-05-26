@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwwhec43xf5lx"]
 
-[ext_resource type="Script" path="res://game_manager.gd" id="1_ld88o"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ld88o"]
 [ext_resource type="PackedScene" uid="uid://cavojl5slo3wh" path="res://scenes/column.tscn" id="2_1df1v"]
 [ext_resource type="PackedScene" uid="uid://c00blukjcywj6" path="res://scenes/flappy.tscn" id="3_58hg1"]
 [ext_resource type="Texture2D" uid="uid://daxrdacs0dh5c" path="res://assets/Cave.png" id="3_hnciy"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clj4n5pnjad4v"
-path="res://.godot/imported/CaveSet tiles.png-3243d0d242c843c964151cc47a53b80b.ctex"
+uid="uid://v25ba3u713lk"
+path="res://.godot/imported/CaveColumn.png-c0aa2704723352ada226831e11235c3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CaveSet tiles.png"
-dest_files=["res://.godot/imported/CaveSet tiles.png-3243d0d242c843c964151cc47a53b80b.ctex"]
+source_file="res://assets/CaveColumn.png"
+dest_files=["res://.godot/imported/CaveColumn.png-c0aa2704723352ada226831e11235c3c.ctex"]
 
 [params]
 

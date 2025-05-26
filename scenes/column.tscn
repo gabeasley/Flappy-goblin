@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://cavojl5slo3wh"]
+[gd_scene load_steps=2 format=3 uid="uid://cavojl5slo3wh"]
 
-[node name="Column" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://v25ba3u713lk" path="res://assets/CaveColumn.png" id="1_tmlma"]
+
+[node name="Column" type="Area2D"]
+
+[node name="Stalactite" type="Sprite2D" parent="."]
+position = Vector2(0, -0.5)
+scale = Vector2(1, 0.994792)
+texture = ExtResource("1_tmlma")
+offset = Vector2(0, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+
+[node name="Stalagmite" type="Sprite2D" parent="."]
+texture = ExtResource("1_tmlma")
+offset = Vector2(0, 64)
+flip_v = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
