@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cavojl5slo3wh"]
+[gd_scene load_steps=8 format=3 uid="uid://cavojl5slo3wh"]
 
+[ext_resource type="Script" path="res://scripts/column.gd" id="1_l1ir3"]
 [ext_resource type="Texture2D" uid="uid://v25ba3u713lk" path="res://assets/CaveColumn.png" id="1_tmlma"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mea5j"]
+size = Vector2(25, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6jrd"]
+size = Vector2(24, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5ipg"]
+size = Vector2(23.5, 10.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aahk3"]
+size = Vector2(23, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljuur"]
+size = Vector2(8, 39)
+
 [node name="Column" type="Area2D"]
+script = ExtResource("1_l1ir3")
 
 [node name="Stalactite" type="Sprite2D" parent="."]
 position = Vector2(0, -0.5)
@@ -11,8 +28,12 @@ texture = ExtResource("1_tmlma")
 offset = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -23.5)
+shape = SubResource("RectangleShape2D_mea5j")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -70.5)
+shape = SubResource("RectangleShape2D_r6jrd")
 
 [node name="Stalagmite" type="Sprite2D" parent="."]
 texture = ExtResource("1_tmlma")
@@ -20,5 +41,17 @@ offset = Vector2(0, 64)
 flip_v = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 22.75)
+shape = SubResource("RectangleShape2D_q5ipg")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(0, 70)
+shape = SubResource("RectangleShape2D_aahk3")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(18, 0.5)
+shape = SubResource("RectangleShape2D_ljuur")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

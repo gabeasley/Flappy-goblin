@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwwhec43xf5lx"]
+[gd_scene load_steps=9 format=3 uid="uid://bwwhec43xf5lx"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5k76f"]
 [ext_resource type="PackedScene" uid="uid://cavojl5slo3wh" path="res://scenes/column.tscn" id="2_1df1v"]
@@ -7,12 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://corla4obic7nm" path="res://scenes/killzone_bot.tscn" id="5_gqmx4"]
 [ext_resource type="PackedScene" uid="uid://v30qk0na2muk" path="res://scenes/killzone_top.tscn" id="6_ycdjd"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rqvsa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3slf0"]
+normal = Vector2(0, 1)
+distance = 26.0
+
 [node name="game" type="Node"]
 script = ExtResource("1_5k76f")
 column_scene = ExtResource("2_1df1v")
 
-[node name="flappy" parent="." instance=ExtResource("3_58hg1")]
-position = Vector2(100, 100)
+[node name="Flappy" parent="." instance=ExtResource("3_58hg1")]
+position = Vector2(222, 152)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -25,11 +31,19 @@ texture = ExtResource("3_hnciy")
 centered = false
 
 [node name="KillzoneBot" parent="." instance=ExtResource("5_gqmx4")]
-position = Vector2(119, 360)
+position = Vector2(-28, 185)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneBot"]
+position = Vector2(125, 178)
+shape = SubResource("WorldBoundaryShape2D_rqvsa")
 
 [node name="KillzoneTop" parent="." instance=ExtResource("6_ycdjd")]
 position = Vector2(93, -2)
 collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneTop"]
+position = Vector2(3, -26)
+shape = SubResource("WorldBoundaryShape2D_3slf0")
 
 [node name="ColumnTimer" type="Timer" parent="."]
 wait_time = 1.5
